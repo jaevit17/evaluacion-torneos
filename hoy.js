@@ -112,11 +112,9 @@ function buscarTorneos() {
     let cmpBuscar = document.getElementById("cmpBuscarT");
     let busqueda = cmpBuscar.value.toLowerCase();
     let torneosEncontrados = [];
-
     for (let i = 0; i < torneos.length; i++) {
         let nombre = torneos[i].nombre.toLowerCase();
         let categoria = torneos[i].categoria.toLowerCase();
-
         if (nombre.includes(busqueda) || categoria.includes(busqueda)) {
             torneosEncontrados.push(torneos[i]);
         }
