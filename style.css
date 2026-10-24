@@ -938,3 +938,45 @@ body::before {
         transition-duration: 0.01ms !important;
     }
 }
+/* =========================================
+   ESTILOS PARA LOS BOTONES DE ACCIÓN (TABLA)
+========================================= */
+
+#tablaRegistro td button {
+    padding: 6px 12px;
+    margin-right: 4px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background: #ffffff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Botón Editar (Estilo tono violeta) */
+#tablaRegistro td button:first-child {
+    border-color: #d8c4fd;
+    color: var(--violeta);
+    background: #faf6ff;
+}
+
+#tablaRegistro td button:first-child:hover {
+    background: var(--violeta);
+    color: var(--blanco);
+    border-color: var(--violeta);
+}
+
+/* Botón Eliminar (Estilo tono rosa/alerta) */
+#tablaRegistro td button:last-child {
+    border-color: #fcd2e1;
+    color: var(--rosa);
+    background: #fff9fc;
+}
+
+#tablaRegistro td button:last-child:hover {
+    background: var(--rosa);
+    color: var(--blanco);
+    border-color: var(--rosa);
+}
