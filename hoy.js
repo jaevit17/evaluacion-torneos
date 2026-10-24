@@ -177,3 +177,22 @@ function actualizarEstadisticas() {
     cmpTabla.innerHTML = contenidoTabla;
 }
 
+//Actividad 3 Grupal Eliminar Torneo
+
+function eliminarTorneo(indice){
+    //creo la variable confirmar, con el confirm, una ventana emergente con boton de aceptar y cancelar
+    let confirmar = confirm("Estas seguro de que deseas eliminar este torneo?");
+    //si confirmamos se borrara el torneo que nosotros escogimos
+    if (confirmar){
+        torneos.splice(indice, 1);
+        //llamamos a la funcion dnd se grafica los datos
+        mostrarTorneos();
+    }
+    //si le damos cancelar saldra este alert
+    else{
+        alert("la eliminación del torneo ah sido cancelada")
+
+    }
+    
+
+}
