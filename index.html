@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"></href>
-    <title>ARENA PRO | Registro de Torneos</title>
 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="estilos.css">
+
+    <title>ARENA PRO | Registro de Torneos</title>
 </head>
 <body>
 
@@ -105,7 +106,9 @@
                     <p>Completa los datos de tu competición.</p>
                 </div>
 
-                <span class="insignia">NUEVO TORNEO</span>
+                <span class="insignia" id="insigniaFormulario">
+                    NUEVO TORNEO
+                </span>
             </div>
 
             <div class="separador"></div>
@@ -145,6 +148,7 @@
                             id="participantesT"
                             type="number"
                             min="1"
+                            max="100"
                             step="1"
                             placeholder="Ej. 32"
                             required
@@ -153,17 +157,19 @@
 
                     <div class="campo">
                         <label for="valorT">Valor de inscripción</label>
+
                         <div class="campo-monetario">
                             <span>$</span>
                             <input
                                 id="valorT"
                                 type="number"
-                                min="0"
+                                min="0.01"
                                 step="0.01"
                                 placeholder="0.00"
                                 required
                             >
                         </div>
+
                         <small>Valor por participante.</small>
                     </div>
 
@@ -188,9 +194,9 @@
                     </p>
                 </div>
 
-                <button id="btnRegistrar" type="button"
-                        onclick="registrarTorneo()">
-                    <span id="">REGISTRAR TORNEO</span>
+                <!-- Un solo ID para el botón -->
+                <button id="btnRegistrar" type="submit">
+                    <span id="textoBoton">REGISTRAR TORNEO</span>
                     <span class="flecha-boton">↗</span>
                 </button>
 
@@ -202,6 +208,42 @@
 
             <p id="smsError" role="status" aria-live="polite"></p>
         </section>
+        
+        
+
+
+
+
+        <!-- Sección de tarjetas de torneos -->
+<section class="seccion-resultados seccion-tarjetas">
+
+    <div class="resultados-encabezado">
+        <div>
+            <span class="texto-superior">VISTA VISUAL</span>
+            <h2>Explorar torneos</h2>
+            <p>Visualiza tus competiciones en tarjetas organizadas.</p>
+        </div>
+
+        <button
+            type="button"
+            id="btnGenerarTarjetas"
+            onclick="generarTarjetas()">
+            GENERAR TARJETAS
+        </button>
+    </div>
+
+    <!-- Aquí se mostrarán las tarjetas generadas -->
+    <div id="contenedorTarjetas">
+        <p class="mensaje-tarjetas">
+            Pulsa «GENERAR TARJETAS» para visualizar tus torneos.
+        </p>
+    </div>
+
+</section>
+
+
+
+
 
         <!-- Tabla de torneos -->
         <section class="seccion-resultados">
@@ -209,7 +251,7 @@
             <div class="resultados-encabezado">
                 <div>
                     <span class="texto-superior">GESTIÓN DE EVENTOS</span>
-                    <h2>Tor​​neos registrados</h2>
+                    <h2>Torneos registrados</h2>
                     <p>Consulta los datos y la recaudación de tus eventos.</p>
                 </div>
 
@@ -227,19 +269,57 @@
                                 <th>Valor de inscripción</th>
                                 <th>Email</th>
                                 <th>Recaudación</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Los registros se añadirán con JavaScript -->
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
 
         </section>
 
-        <!-- 35.	Crear una sección para estadísticas. -->
+        <!-- Búsqueda de torneos -->
+        <section class="seccion-resultados">
+
+            <div class="resultados-encabezado">
+                <div>
+                    <span class="texto-superior">BÚSQUEDA DE TORNEOS</span>
+                    <h2>Buscar torneos</h2>
+                    <p>Consulta tus torneos registrados.</p>
+
+                    <input
+                        type="text"
+                        id="cmpBuscarT"
+                        placeholder="Buscar por nombre o categoría..."
+                        oninput="buscarTorneos()"
+                    >
+                </div>
+            </div>
+
+            <div id="tablaBusqueda">
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Participantes</th>
+                                <th>Valor de inscripción</th>
+                                <th>Email</th>
+                                <th>Recaudación</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Estadísticas -->
         <section class="seccion-estadisticas" id="seccionEstadisticas">
+
             <div class="estadisticas-encabezado">
                 <div>
                     <span class="texto-superior">ESTADÍSTICAS</span>
@@ -247,6 +327,7 @@
                     <p>Consulta las estadísticas de tus eventos registrados.</p>
                 </div>
             </div>
+
             <div class="estadisticas-contenido">
                 <table>
                     <thead>
@@ -256,13 +337,14 @@
                             <th>Total recaudación</th>
                         </tr>
                     </thead>
-                    <tbody id="contenidoEstadisticas">
-                        <!-- Las estadísticas se añadirán con JavaScript -->
-                    </tbody>
+
+                    <tbody id="contenidoEstadisticas"></tbody>
                 </table>
             </div>
+
         </section>
 
+        <!-- Pie de página -->
         <footer class="pie-pagina">
             <span>ARENA<span class="pie-acento">PRO</span></span>
             <span>DISEÑADO PARA LA COMPETICIÓN.</span>
@@ -274,5 +356,4 @@
     <script src="hoy.js"></script>
 
 </body>
-<button onclick="editarTorneo();"></button>
 </html>
