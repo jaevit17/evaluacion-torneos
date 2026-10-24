@@ -59,6 +59,7 @@ function registrarTorneo() {
     // 22. Mostrar torneos y limpiar formulario
     mostrarTorneos();
     limpiarFormulario();
+    generarTarjetas();
     // 23. Mostrar mensaje de éxito
     smsError.innerHTML = "¡Torneo registrado exitosamente!";
 }
@@ -105,4 +106,25 @@ function limpiarFormulario() {
     document.getElementById("participantesT").value = "";
     document.getElementById("valorT").value = "";
     document.getElementById("emailT").value = "";
+}
+
+function generarTarjetas() {
+    let contenedor = document.getElementById("contenedorTarjetas");
+    let contenido = "";
+
+    for (let i = 0; i < torneos.length; i++) {
+        let torneo = torneos[i];
+                contenido += `
+            <div class="tarjeta-torneo">
+                <h3>${torneo.nombre}</h3>
+                <p><strong>Categoría:</strong> ${torneo.categoria}</p>
+                <p><strong>Participantes:</strong> ${torneo.participantes}</p>
+                <p><strong>Inscripción:</strong> $${torneo.valorInscripcion.toFixed(2)}</p>
+                <p class="recaudacion"><strong>Recaudación:</strong> $${torneo.recaudacion.toFixed(2)}</p>
+            </div>
+        `;
+    }
+
+    // 5. Insertar el HTML generado en el contenedor
+    contenedor.innerHTML = contenido;
 }

@@ -1,14 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"></href>
+    <link rel="stylesheet" href="style.css">
+    </href>
     <title>ARENA PRO | Registro de Torneos</title>
 
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
     <!-- Fondo animado -->
@@ -24,41 +26,31 @@
         <a href="#" class="marca" aria-label="Arena Pro, inicio">
 
             <div class="logo-lobo">
-                <svg viewBox="0 0 100 100" role="img"
-                     aria-label="Logo geométrico de lobo">
+                <svg viewBox="0 0 100 100" role="img" aria-label="Logo geométrico de lobo">
 
                     <defs>
-                        <linearGradient id="loboColor"
-                            x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#9333ea"/>
-                            <stop offset="100%" stop-color="#4c1d95"/>
+                        <linearGradient id="loboColor" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#9333ea" />
+                            <stop offset="100%" stop-color="#4c1d95" />
                         </linearGradient>
                     </defs>
 
                     <path d="M12 12 L38 24 L50 17 L62 24 L88 12
-                             L82 53 L69 77 L50 92 L31 77 L18 53 Z"
-                          fill="url(#loboColor)"/>
+                             L82 53 L69 77 L50 92 L31 77 L18 53 Z" fill="url(#loboColor)" />
 
-                    <path d="M12 12 L38 24 L31 43 L18 53 Z"
-                          fill="#171323"/>
+                    <path d="M12 12 L38 24 L31 43 L18 53 Z" fill="#171323" />
 
-                    <path d="M88 12 L62 24 L69 43 L82 53 Z"
-                          fill="#171323"/>
+                    <path d="M88 12 L62 24 L69 43 L82 53 Z" fill="#171323" />
 
-                    <path d="M31 35 L46 43 L38 52 L26 48 Z"
-                          fill="#ffffff"/>
+                    <path d="M31 35 L46 43 L38 52 L26 48 Z" fill="#ffffff" />
 
-                    <path d="M69 35 L54 43 L62 52 L74 48 Z"
-                          fill="#ffffff"/>
+                    <path d="M69 35 L54 43 L62 52 L74 48 Z" fill="#ffffff" />
 
-                    <path d="M38 52 L50 44 L62 52 L50 68 Z"
-                          fill="#171323"/>
+                    <path d="M38 52 L50 44 L62 52 L50 68 Z" fill="#171323" />
 
-                    <path d="M38 68 L50 76 L62 68 L50 88 Z"
-                          fill="#ffffff"/>
+                    <path d="M38 68 L50 76 L62 68 L50 88 Z" fill="#ffffff" />
 
-                    <path d="M46 44 L50 38 L54 44 L50 49 Z"
-                          fill="#ff477e"/>
+                    <path d="M46 44 L50 38 L54 44 L50 49 Z" fill="#ff477e" />
                 </svg>
             </div>
 
@@ -116,13 +108,8 @@
 
                     <div class="campo campo-completo">
                         <label for="nombreT">Nombre del torneo</label>
-                        <input
-                            id="nombreT"
-                            type="text"
-                            placeholder="Ej. Copa Arena Championship"
-                            autocomplete="off"
-                            required
-                        >
+                        <input id="nombreT" type="text" placeholder="Ej. Copa Arena Championship" autocomplete="off"
+                            required>
                         <small>El nombre con el que se identificará tu evento.</small>
                     </div>
 
@@ -141,41 +128,22 @@
 
                     <div class="campo">
                         <label for="participantesT">Participantes</label>
-                        <input
-                            id="participantesT"
-                            type="number"
-                            min="1"
-                            step="1"
-                            placeholder="Ej. 32"
-                            required
-                        >
+                        <input id="participantesT" type="number" min="1" step="1" placeholder="Ej. 32" required>
                     </div>
 
                     <div class="campo">
                         <label for="valorT">Valor de inscripción</label>
                         <div class="campo-monetario">
                             <span>$</span>
-                            <input
-                                id="valorT"
-                                type="number"
-                                min="0"
-                                step="0.01"
-                                placeholder="0.00"
-                                required
-                            >
+                            <input id="valorT" type="number" min="0" step="0.01" placeholder="0.00" required>
                         </div>
                         <small>Valor por participante.</small>
                     </div>
 
                     <div class="campo">
                         <label for="emailT">Email del organizador</label>
-                        <input
-                            id="emailT"
-                            type="email"
-                            placeholder="organizador@correo.com"
-                            autocomplete="email"
-                            required
-                        >
+                        <input id="emailT" type="email" placeholder="organizador@correo.com" autocomplete="email"
+                            required>
                     </div>
 
                 </div>
@@ -188,8 +156,7 @@
                     </p>
                 </div>
 
-                <button id="btnRegistrar" type="button"
-                        onclick="registrarTorneo()">
+                <button id="btnRegistrar" type="button" onclick="registrarTorneo()">
                     <span>REGISTRAR TORNEO</span>
                     <span class="flecha-boton">↗</span>
                 </button>
@@ -244,9 +211,12 @@
         </footer>
 
     </main>
-
+    <section class="seccion-resultados">
+        <div id="contenedorTarjetas" class="contenedor-tarjetas"></div>
+    </section>s
     <script src="utilitarios.js"></script>
     <script src="hoy.js"></script>
 
 </body>
+
 </html>
