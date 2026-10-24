@@ -1,54 +1,249 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Torneos Gamer</title>
+    <link rel="stylesheet" href="style.css"></href>
+    <title>ARENA PRO | Registro de Torneos</title>
+
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <h1>Dashboard de Torneos Gamer</h1>
+    <!-- Fondo animado -->
+    <div class="fondo-animado" aria-hidden="true">
+        <span class="circulo circulo-1"></span>
+        <span class="circulo circulo-2"></span>
+        <span class="circulo circulo-3"></span>
+        <span class="circulo circulo-4"></span>
+    </div>
 
-    <form>
-        <div>
-            <h3>Nombre del torneo:</h3>
-            <input id="nombreT" type="text" placeholder="Ingrese nombre">
+    <!-- Encabezado -->
+    <header class="encabezado">
+        <a href="#" class="marca" aria-label="Arena Pro, inicio">
 
-            <h3>Categoría:</h3>
-            <p>Lucha, Estrategia, Arcade, Deportes</p>
-            <input id="categoriaT" type="text" placeholder="Ingrese categoría">
+            <div class="logo-lobo">
+                <svg viewBox="0 0 100 100" role="img"
+                     aria-label="Logo geométrico de lobo">
 
-            <h3>Participantes:</h3>
-            <input id="participantesT" type="number" placeholder="Ingrese participantes">
+                    <defs>
+                        <linearGradient id="loboColor"
+                            x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#9333ea"/>
+                            <stop offset="100%" stop-color="#4c1d95"/>
+                        </linearGradient>
+                    </defs>
 
-            <h3>Valor de inscripción:</h3>
-            <input id="valorT" type="number" placeholder="Ingrese valor">
+                    <path d="M12 12 L38 24 L50 17 L62 24 L88 12
+                             L82 53 L69 77 L50 92 L31 77 L18 53 Z"
+                          fill="url(#loboColor)"/>
 
-            <h3>Email del organizador:</h3>
-            <input id="emailT" type="email" placeholder="Ingrese email">
+                    <path d="M12 12 L38 24 L31 43 L18 53 Z"
+                          fill="#171323"/>
+
+                    <path d="M88 12 L62 24 L69 43 L82 53 Z"
+                          fill="#171323"/>
+
+                    <path d="M31 35 L46 43 L38 52 L26 48 Z"
+                          fill="#ffffff"/>
+
+                    <path d="M69 35 L54 43 L62 52 L74 48 Z"
+                          fill="#ffffff"/>
+
+                    <path d="M38 52 L50 44 L62 52 L50 68 Z"
+                          fill="#171323"/>
+
+                    <path d="M38 68 L50 76 L62 68 L50 88 Z"
+                          fill="#ffffff"/>
+
+                    <path d="M46 44 L50 38 L54 44 L50 49 Z"
+                          fill="#ff477e"/>
+                </svg>
+            </div>
+
+            <div class="marca-texto">
+                <span class="marca-titulo">ARENA<span>PRO</span></span>
+                <span class="marca-subtitulo">COMPETITIVE GAMING</span>
+            </div>
+        </a>
+
+        <div class="estado-plataforma">
+            <span class="punto-estado"></span>
+            PLATAFORMA DE TORNEOS
         </div>
+    </header>
 
-        <br>
+    <main class="contenido">
 
-        <button type="button" onclick="registrarTorneo()">
-            REGISTRAR TORNEO
-        </button>
+        <!-- Presentación -->
+        <section class="presentacion">
+            <span class="etiqueta">
+                <span class="etiqueta-icono">✦</span>
+                TU COMPETENCIA COMIENZA AQUÍ
+            </span>
 
-        <div id="tablaRegistro">
-            <table>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Participantes</th>
-                    <th>Valor de inscripción</th>
-                    <th>Email</th>
-                    <th>Recaudación</th>
-                </tr>
-            </table>
-        </div>
+            <h1>
+                Crea tu próximo
+                <span>gran torneo.</span>
+            </h1>
 
-        <p id="smsError"></p>
-    </form>
+            <p>
+                Configura tu competición, organiza a tus participantes
+                y convierte cada partida en una experiencia épica.
+            </p>
+        </section>
+
+        <!-- Formulario -->
+        <section class="tarjeta-registro">
+
+            <div class="tarjeta-encabezado">
+                <div class="icono-registro">♜</div>
+
+                <div>
+                    <h2>Registro de torneo</h2>
+                    <p>Completa los datos de tu competición.</p>
+                </div>
+
+                <span class="insignia">NUEVO TORNEO</span>
+            </div>
+
+            <div class="separador"></div>
+
+            <form id="formularioTorneo">
+
+                <div class="rejilla-formulario">
+
+                    <div class="campo campo-completo">
+                        <label for="nombreT">Nombre del torneo</label>
+                        <input
+                            id="nombreT"
+                            type="text"
+                            placeholder="Ej. Copa Arena Championship"
+                            autocomplete="off"
+                            required
+                        >
+                        <small>El nombre con el que se identificará tu evento.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="categoriaT">Categoría del juego</label>
+                        <select id="categoriaT" required>
+                            <option value="" disabled selected>
+                                Selecciona una categoría
+                            </option>
+                            <option value="Lucha">Lucha</option>
+                            <option value="Estrategia">Estrategia</option>
+                            <option value="Arcade">Arcade</option>
+                            <option value="Deportes">Deportes</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="participantesT">Participantes</label>
+                        <input
+                            id="participantesT"
+                            type="number"
+                            min="1"
+                            step="1"
+                            placeholder="Ej. 32"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="valorT">Valor de inscripción</label>
+                        <div class="campo-monetario">
+                            <span>$</span>
+                            <input
+                                id="valorT"
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+                        </div>
+                        <small>Valor por participante.</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="emailT">Email del organizador</label>
+                        <input
+                            id="emailT"
+                            type="email"
+                            placeholder="organizador@correo.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="aviso-privacidad">
+                    <span class="escudo">✓</span>
+                    <p>
+                        <strong>Todo listo para competir.</strong>
+                        Revisa tus datos antes de registrar el torneo.
+                    </p>
+                </div>
+
+                <button id="btnRegistrar" type="button"
+                        onclick="registrarTorneo()">
+                    <span>REGISTRAR TORNEO</span>
+                    <span class="flecha-boton">↗</span>
+                </button>
+
+                <p class="nota-boton">
+                    PREPARA TU EVENTO · ORGANIZA · COMPITE
+                </p>
+
+            </form>
+
+            <p id="smsError" role="status" aria-live="polite"></p>
+        </section>
+
+        <!-- Tabla de torneos -->
+        <section class="seccion-resultados">
+
+            <div class="resultados-encabezado">
+                <div>
+                    <span class="texto-superior">GESTIÓN DE EVENTOS</span>
+                    <h2>Tor​​neos registrados</h2>
+                    <p>Consulta los datos y la recaudación de tus eventos.</p>
+                </div>
+
+                <span class="contador-etiqueta">REGISTROS</span>
+            </div>
+
+            <div id="tablaRegistro">
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Participantes</th>
+                                <th>Valor de inscripción</th>
+                                <th>Email</th>
+                                <th>Recaudación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los registros se añadirán con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="pie-pagina">
+            <span>ARENA<span class="pie-acento">PRO</span></span>
+            <span>DISEÑADO PARA LA COMPETICIÓN.</span>
+        </footer>
+
+    </main>
 
     <script src="utilitarios.js"></script>
     <script src="hoy.js"></script>

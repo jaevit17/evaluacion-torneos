@@ -1,0 +1,15 @@
+toma rol de programdor full stack diseñador profesional 
+interfaces de registro de torneos de videojuegos.
+OBJETIVO: poner interface visual css html PROFESIONAL e
+n diseño estilo tipo apple.
+ACCIONES:
+-usa background fondo blanco limpio con animacion de circulos 
+difuminados violetas y rosa rojillo moviendose en el fondo.
+-usa paleta de color visualmente perfecta en contraste tematica 
+Registro de torneos.
+-la letra debe ser visualmente perfecta en tamaño en interfaz 
+visula gamer no afecte a ojos.
+-haz responsive para todos los dispositivos.
+.crea logo superior izquiedo cara geometrica de lobo violeta 
+negro tipo git que este animado al pasar mouse
+boton principal debe ser visualmente perfecto. animado al pasar el mouse encima.
