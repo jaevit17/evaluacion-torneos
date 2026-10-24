@@ -65,7 +65,7 @@ function registrarTorneo() {
 
 
 /**
- * Actividad 5. Mostrar los torneos
+ * Actividad 5 (y actualización Actividad 1). Mostrar los torneos
  */
 function mostrarTorneos() {
     let contenido = "";
@@ -77,6 +77,7 @@ function mostrarTorneos() {
         "<th>Valor de inscripción</th>" +
         "<th>Email</th>" +
         "<th>Recaudación</th>" +
+        "<th>Acciones</th>" +
         "</tr>";
     // Recorrer el arreglo obligatoriamente con for
     for (let i = 0; i < torneos.length; i++) {
@@ -88,6 +89,10 @@ function mostrarTorneos() {
             "<td>" + torneo.valorInscripcion.toFixed(2) + "</td>" +
             "<td>" + torneo.email + "</td>" +
             "<td>" + torneo.recaudacion.toFixed(2) + "</td>" +
+            "<td>" +
+                "<button onclick=\"editarTorneo(" + i + ")\">Editar</button> " +
+                "<button onclick=\"eliminarTorneo(" + i + ")\">Eliminar</button>" +
+            "</td>" +
             "</tr>";
     }
     contenido += "</table>";
