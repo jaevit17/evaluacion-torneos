@@ -1,7 +1,7 @@
 // Actividad 3. Declarar el arreglo global
 let torneos = [];
 
-
+let indiceEdicion
 /**
  * Actividad 4. Registrar y validar un torneo
  */
@@ -112,6 +112,52 @@ function limpiarFormulario() {
     document.getElementById("emailT").value = "";
 }
 
+function editarTorneo(indice){
+
+    let indiceRecuperado = indice
+
+    mostrarTextoSpan("botonPrincipal", "ACTUALIZAR TORNEO");
+
+    let torneoEd = torneos[indiceRecuperado]
+
+    document.getElementById("nombreT").value = torneoEd.nombre; 
+    document.getElementById("categoriaT").value = torneoEd.categoria;
+    document.getElementById("participantesT").value = torneoEd.participantes;
+    document.getElementById("valorT").value = torneoEd.valorInscripcion;
+    document.getElementById("emailT").value = torneoEd.email;
+
+    let nombreEd = document.getElementById("nombreT").value
+    let categoriaEd = document.getElementById("categoriaT").value
+    let participantesEd = document.getElementById("participantesT").value
+    let valorEd = document.getElementById("valorT").value
+    let emailEd = document.getElementById("emailT").value
+
+    let recaudacionEd = participantesEd * valorEd;
+
+    torneoEd.nombre = nombreEd
+    torneoEd.categoria = categoriaEd
+    torneoEd.participantes = participantesEd
+    torneoEd.valorInscripcion = valorEd
+    torneoEd.email = emailEd
+    torneoEd.recaudacion  = recaudacionEd
+    
+    mostrarTorneos();
+
+    indiceEdicion = -1
+
+    limpiarFormulario();
+
+    mostrarTextoSpan("botonPrincipal", "REGISTRAR TORNEO");
+}
+
+function mostrarTextoSpan(idSpan, texto) {
+    const span = document.getElementById(idSpan);
+    if (span) {
+        span.textContent = texto;
+    } else {
+        console.error(`No se encontró un elemento con id "${idSpan}"`);
+    }
+}
 //actividad 6. Actualizar estadísticas
 function actualizarEstadisticas() {
     let totalTorneos = torneos.length;
