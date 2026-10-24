@@ -106,3 +106,5 @@ function limpiarFormulario() {
     document.getElementById("valorT").value = "";
     document.getElementById("emailT").value = "";
 }
+
+f
