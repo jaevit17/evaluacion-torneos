@@ -59,6 +59,7 @@ function registrarTorneo() {
     // 22. Mostrar torneos y limpiar formulario
     mostrarTorneos();
     limpiarFormulario();
+    actualizarEstadisticas();
     // 23. Mostrar mensaje de éxito
     smsError.innerHTML = "¡Torneo registrado exitosamente!";
 }
