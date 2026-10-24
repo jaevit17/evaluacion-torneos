@@ -4,13 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="dashboard.js"></script>
 </head>
 <body>
+    <h1>Dashboard de Torneos Gamer</h1>
+    <form>
+        <div>
+            <h3>Nombre del torneo:</h3>
+            <input id="nombreT" type="text" placeholder="ingrese nombre">
+            <br>
+            <small id="smsNombre" ></small>
+
+            <h3>Categoría:</h3>
+            </li>
+                <ol>Lucha</ol>
+                <ol>Estrategia</ol>
+                <ol>Arcade</ol>
+                <ol>Deportes</ol>
+            </li>
+            <input id="categoriaT" type="text" placeholder="ingrese categoria">
+            <br>
+            <small id="smsCatg" ></small>
+
+            <h3>Participantes:</h3>
+            <input id="participantesT" type="text" placeholder="ingrese participantes">
+            <br>
+            <small id="smsParticipantes" ></small>
+
+            <h3>Valor de inscripción:</h3>
+            <input id="valorT" type="text" placeholder="ingrese valor">
+            <br>
+            <small id="smsValor" ></small>
+
+            <h3>Email del organizador</h3>
+            <input id="emailT" type="text" placeholder="ingrese email">
+            <br>
+            <small id="smsEmail" ></small>
+        </div>
+        <br>
+        <button onclick="registrarTorneo()">REGISTRAR TORNEO</button>
+        <div id="tablaRegistro">
+            <table>
+                <tr><th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Participantes</th>
+                    <th>Valor de inscripción</th>
+                    <th>Email</th>
+                    <th> Recaudación</th>
+                </tr>
+            </table>
+        </div>
+
+        <p id="smsError"></p>
+        
+    </form>
+
+
+
+
     
-
-
-
-
-    <script src="dashboard.js"></script>
+    <script src="utilitarios.js"></script>
 </body>
 </html>
