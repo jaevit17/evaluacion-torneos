@@ -32,14 +32,14 @@ function registrarTorneo() {
     if (participantes < 1 || participantes > 100) {
     alert("Ingrese un número entero entre 1 y 100");
     return;
-}
+    }
     // 17. Validar valor de inscripción mayor que 0
     if (cmpValor.value === "" || valor <= 0) {
         alert("El valor de inscripción debe ser mayor que 0");
         return;
     }
     // 18. Validar email no vacío
-    if (email.trim() === "") {
+    if (email === "") {
         smsError.innerHTML = "Ingrese un correo electrónico.";
         return;
     }
@@ -105,4 +105,54 @@ function limpiarFormulario() {
     document.getElementById("participantesT").value = "";
     document.getElementById("valorT").value = "";
     document.getElementById("emailT").value = "";
+}
+
+//---------BUSQUEDA DE TORNEOS--------
+function buscarTorneos() {
+    let cmpBuscar = document.getElementById("cmpBuscarT");
+    let busqueda = cmpBuscar.value.toLowerCase();
+    let torneosEncontrados = [];
+
+    for (let i = 0; i < torneos.length; i++) {
+        let nombre = torneos[i].nombre.toLowerCase();
+        let categoria = torneos[i].categoria.toLowerCase();
+
+        if (nombre.includes(busqueda) || categoria.includes(busqueda)) {
+            torneosEncontrados.push(torneos[i]);
+        }
+    }
+
+    mostrarTorneosBuscados(torneosEncontrados);
+}
+
+function mostrarTorneosBuscados(listaTorneos) {
+    let contenido = "";
+
+    contenido = "<div class='tabla-scroll'><table>";
+    contenido += "<thead><tr>" +
+        "<th>Nombre</th>" +
+        "<th>Categoría</th>" +
+        "<th>Participantes</th>" +
+        "<th>Valor de inscripción</th>" +
+        "<th>Email</th>" +
+        "<th>Recaudación</th>" +
+        "</tr></thead><tbody>";
+
+    // Recorrer los torneos encontrados
+    for (let i = 0; i < listaTorneos.length; i++) {
+        let torneo = listaTorneos[i];
+
+        contenido += "<tr>" +
+            "<td>" + torneo.nombre + "</td>" +
+            "<td>" + torneo.categoria + "</td>" +
+            "<td>" + torneo.participantes + "</td>" +
+            "<td>$" + torneo.valorInscripcion.toFixed(2) + "</td>" +
+            "<td>" + torneo.email + "</td>" +
+            "<td>$" + torneo.recaudacion.toFixed(2) + "</td>" +
+            "</tr>";
+    }
+
+    contenido += "</tbody></table></div>";
+
+    document.getElementById("tablaBusqueda").innerHTML = contenido;
 }

@@ -237,7 +237,36 @@
             </div>
 
         </section>
-
+         <!-- Buscar Torneos -->
+        <section  class="seccion-resultados">
+            <div class="resultados-encabezado">
+                <div>
+                    <span class="texto-superior">BUSQUEDA DE TORNEOS</span>
+                    <h2>Buscar Torneos</h2>
+                    <p>Consulta tus torneos registrados eres uno de los mejores?.</p>
+                    <button type="button" onclick="buscarTorneos()">BUSCAR</button>
+                    <input type="text" id="cmpBuscarT" placeholder="Buscar por nombre o categoría...">
+                </div>
+                <div id="tablaBusqueda">
+                <div class="tabla-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Participantes</th>
+                                <th>Valor de inscripción</th>
+                                <th>Email</th>
+                                <th>Recaudación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los registros se añadirán con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
         <footer class="pie-pagina">
             <span>ARENA<span class="pie-acento">PRO</span></span>
             <span>DISEÑADO PARA LA COMPETICIÓN.</span>
@@ -250,3 +279,4 @@
 
 </body>
 </html>
+
